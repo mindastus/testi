@@ -1,0 +1,10 @@
+- name: Test cron job
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Create a cron job that writes to a file every minute
+      cron:
+        name: Test cron job"
+        minute: "*"
+        job: "echo 'Ansible toimii!' >> /tmp/ansible_test.txt"
